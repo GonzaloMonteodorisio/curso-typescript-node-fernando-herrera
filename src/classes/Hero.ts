@@ -1,4 +1,4 @@
-import powers, { Power } from '../data/powers';
+import powers, { Power } from '../data/powers'; // como es importación por defecto puedo importarlo con el nombre que quiera
 
 export class Hero {
   constructor(
