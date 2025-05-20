@@ -1,12 +1,14 @@
-import { Hero } from './classes/Hero';
+import { Hero as HeroClass } from './classes/Hero';
 import { printObject, genericFunction, genericFunctionArrow } from './generics/functions';
+import { Hero } from './interfaces/hero'
+import { Villian } from './interfaces/villian'
 
 // import * as HeroClasses from './classes/Hero';
 // import powers2, { Power } from './data/powers'; // como es importación por defecto puedo importarlo con el nombre que quiera
 
 // const Hero = 123
 
-const ironMan = new Hero('Iron Man', 1, 55);
+const ironMan = new HeroClass('Iron Man', 1, 55);
 
 console.info('ironMan: ', ironMan);
 
@@ -33,6 +35,18 @@ console.info('genericFunctionArrow(3.1416).toFixed(2): ', genericFunctionArrow(3
 console.info('genericFunctionArrow(name).toUpperCase(): ', genericFunctionArrow(name).toUpperCase());
 
 console.info('genericFunctionArrow( new Date() ).getDate(): ', genericFunctionArrow( new Date() ).getDate());
+
+// Generic function example
+
+const deadPool = {
+  name: 'Dead Pool',
+  realName: 'Wade Winston Wilson',
+  dangerLevel: 130,
+}
+
+console.info('genericFunctionArrow<Hero>(deadPool).realName:', genericFunctionArrow<Hero>(deadPool).realName);
+
+console.info('genericFunctionArrow<Villian>(deadPool).dangerLevel:', genericFunctionArrow<Villian>(deadPool).dangerLevel);
 
 
 
