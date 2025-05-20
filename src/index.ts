@@ -1,10 +1,15 @@
-import { Hero, Hero2 } from './classes/Hero';
+// import { Hero as SuperHero, Hero2 } from './classes/Hero';
 
-console.log('Hola Mundo!!!!');
+import * as HeroClasses from './classes/Hero';
+import powers, { Power } from './data/powers'; // como es importación por defecto puedo importarlo con el nombre que quiera
 
-const ironMan = new Hero('Iron Man', 1, 55);
+const Hero = 123
+
+const ironMan = new HeroClasses.Hero('Iron Man', 1, 55);
 
 console.info('ironMan: ', ironMan);
+
+console.info('powers: ', powers);
 
 
 
