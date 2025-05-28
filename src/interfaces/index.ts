@@ -1,7 +1,9 @@
 import { Hero } from './hero'
+import { Pokemon } from './pokemon'
 import { Villain } from './villain'
 
-export { 
-  Hero, 
-  Villain, 
+export {
+  Hero,
+  Pokemon,
+  Villain
 }

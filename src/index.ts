@@ -1,6 +1,6 @@
 import { getPokemon } from "./generics/get-pokemon";
 
 getPokemon(4)
-  .then ( res => console.info('res: ', res))
+  .then ( pokemon => console.info('pokemon.sprites.front_default: ', pokemon.sprites.front_default))
   .catch( error => console.error('error: ', error))
   .finally(() => console.info ('End of getPokemon'))
