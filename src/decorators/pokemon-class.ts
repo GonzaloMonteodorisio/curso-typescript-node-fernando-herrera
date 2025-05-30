@@ -33,10 +33,39 @@ function checkValidPokemonId() {
   }
 }
 
+// Property decorator
+function readOnly( isWritable: boolean = false ): Function {
+  return function( target: any, propertyKey: string ) {
+    console.info({ target, propertyKey })
+
+    const descriptor: PropertyDescriptor = {
+      get() {
+        console.info('this, getter - readOnly: ', this)
+        return 'Fernando'
+      },
+      // this sería la instancia de la clase
+      set( this, val ) {
+        console.info('this, setter - readOnly: ', this)
+        console.info('val, setter - readOnly: ', val)
+
+        // El tercer argumento es un property descriptor
+        Object.defineProperty( this, propertyKey, {
+          value: val,
+          writable: !isWritable,
+          enumerable: false
+        } )
+      }
+    }
+
+    return descriptor
+  }
+}
+
 @blockPrototype
 @printToConSoleConditional(true)
 export class Pokemon {
 
+  @readOnly( false ) // se dispara cuando se accede o cuando se intenta leer la propiedad
   public publicApi: string = 'https://pokeapi.co';
 
   constructor(
