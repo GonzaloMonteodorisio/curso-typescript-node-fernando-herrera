@@ -11,6 +11,7 @@ getPokemon(4)
 
 
 // DECORATORS
-const charmander = new Pokemon('Charmander')
+const charmander = new Pokemon('Charmander');
 
+(Pokemon.prototype as any).customName = 'Pikachu'
 console.info('charmander: ', charmander)

@@ -11,6 +11,12 @@ const printToConSoleConditional = ( print: boolean = false ): Function => {
   return () => console.info('Hello world')
 }
 
+const blockPrototype = function( constructor: Function ) {
+  Object.seal( constructor );
+  Object.seal( constructor.prototype );
+}
+
+@blockPrototype
 @printToConSoleConditional(true)
 export class Pokemon {
 
