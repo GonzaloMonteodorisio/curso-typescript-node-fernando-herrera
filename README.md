@@ -138,3 +138,34 @@ class Rectangle implements Shape {
     return this.width * this.height;
   }
 }
+
+// Method decorator
+function checkValidPokemonId() {
+  return function( target: any, propertyKey: string, descriptor: PropertyDescriptor ) {
+    console.info({ target, propertyKey, descriptor });
+  }
+}
+
+@blockPrototype
+@printToConSoleConditional(true)
+export class Pokemon {
+
+  public publicApi: string = 'https://pokeapi.co';
+
+  constructor(
+    public name: string
+  ) {}
+
+  @checkValidPokemonId()
+  savePokemonToDB( id: number ) {
+    console.info(`Pokemon with id: ${id} has been saved to the database.`);
+  }
+}
+
+// (Pokemon.prototype as any).customName = 'Pikachu'
+charmander.savePokemonToDB(-50)             
+```
+
+propertyKey is the name of the property that is being decorated.
+target is the object that the property is being decorated on.
+descriptor is the descriptor of the property being decorated.
